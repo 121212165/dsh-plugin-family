@@ -92,6 +92,10 @@ dsh plugin --profile web add github:121212165/<仓库名>
 - **坏配置启动点名**：配置填错启动即失败并点名插件，绝不带着不可用配置静默运行。
 - **借鉴来源制度化**：每个借鉴型插件的 README 都有"借鉴来源与差异"表，写明借鉴了什么、改了什么、哪些原创。
 
+## 想自己写一个插件？
+
+看 [docs/DSH-PLUGIN-DEV-TUTORIAL.md](docs/DSH-PLUGIN-DEV-TUTORIAL.md) —— dsh 插件开发完全教程：官方技能书 + 官方文档站 + 社区手册（dsh-handbook）+ 20 个真实上架插件的全部踩坑的融合，30 秒决策树开篇，十分钟跑通第一个插件。
+
 ## License
 
 全部 MIT。
