@@ -1,0 +1,74 @@
+{
+  "name": "@dsh-family/pricing",
+  "version": "0.1.0",
+  "description": "Shared pricing core for dsh plugins: money micros, cost buckets, price catalog, model resolution, and peak-window regimes. Copied once from the byte-identical copies previously duplicated across cost-ledger, price-aware, session-insights, and tool-trace.",
+  "type": "module",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./money": {
+      "types": "./lib/types/money.d.ts",
+      "default": "./lib/money.js"
+    },
+    "./cost": {
+      "types": "./lib/types/pricing/cost.d.ts",
+      "default": "./lib/pricing/cost.js"
+    },
+    "./catalog": {
+      "types": "./lib/types/pricing/catalog.d.ts",
+      "default": "./lib/pricing/catalog.js"
+    },
+    "./window": {
+      "types": "./lib/types/pricing/window.d.ts",
+      "default": "./lib/pricing/window.js"
+    },
+    "./resolve": {
+      "types": "./lib/types/pricing/resolve.d.ts",
+      "default": "./lib/pricing/resolve.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "role": "shared-lib"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "test": "node --test --experimental-test-coverage \"test/*.test.ts\"",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "pricing",
+    "money",
+    "catalog",
+    "shared"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/121212165/dsh-plugin-family.git"
+  },
+  "bugs": {
+    "url": "https://github.com/121212165/dsh-plugin-family/issues"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
+}
