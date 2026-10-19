@@ -15,10 +15,10 @@ export interface PriceEntry {
   currency: Currency;
   /** off-peak prices; `peakMultiplier` scales them during billable peak hours */
   perMillion: PricePerMillion;
-  peakMultiplier?: number;
+  peakMultiplier?: number | undefined;
   contextTokens: number;
   maxOutputTokens: number;
-  aliases?: string[];
+  aliases?: string[] | undefined;
   /** a relay/reseller endpoint whose price we guessed at rather than read from a price sheet */
   lowConfidence?: boolean;
   note?: string;
