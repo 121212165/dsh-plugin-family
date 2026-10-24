@@ -37,7 +37,12 @@
     "lib",
     "src",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "money",
+    "cost",
+    "catalog",
+    "window",
+    "resolve"
   ],
   "dsh": {
     "role": "shared-lib"
@@ -50,7 +55,8 @@
     "prepare": "npm run build",
     "test": "node --test --experimental-test-coverage \"test/*.test.ts\"",
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && npm test && npm run build"
+    "check": "npm run typecheck && npm test && npm run build",
+    "prepublishOnly": "npm run check"
   },
   "keywords": [
     "dsh",
@@ -58,7 +64,8 @@
     "pricing",
     "money",
     "catalog",
-    "shared"
+    "shared",
+    "dsh-plugin"
   ],
   "repository": {
     "type": "git",
