@@ -55,7 +55,7 @@ export function apply(ctx, config) {
 }
 ```
 
-外加一个 `.gitignore`（`node_modules/`、`lib/`、`package-lock.json`——Windows Git Bash 的 `ln -s` 是深拷贝，node_modules 千万别进 git）。
+外加一个 `.gitignore`（`node_modules/`、`package-lock.json`、`*.tgz`——Windows Git Bash 的 `ln -s` 是深拷贝，node_modules 千万别进 git）。**注意 `lib/` 不要 ignore**：dsh-plugin-hub 市场的 git 通道在构建前就预检 tarball 里的入口文件，`lib/` 不提交会导致安装 400（2026-10-24 起家族规范改为构建产物入库，`verify-plugin.mjs` G0-9 门禁检查）。
 
 ### 1.2 安装与验证（官方流程）
 
@@ -272,8 +272,9 @@ window.__ModuleLoader__.load({
 1. GitHub 公开仓（README 带借鉴来源与差异表——社区文化）；
 2. 打 topic：`dsh-plugin`、`deepseek-harness`、`dsh`（三大目录站自动发现）；
 3. 投 awesome 收录（awesome-dsh-plugin 仓库 PR，data/plugins/ 一插件一文件）；
-4. 可选：发 npm（`files` 白名单只带 lib/src/locale/icon/cordis.patch.yml）；
-5. 挂 profile：`dsh plugin --profile <p> add <路径>`。
+4. 发 npm（`files` 白名单带 lib/src/locale/icon/cordis.patch.yml，`repository.url` 指回 GitHub——dsh-plugin-hub 会按它做 npm 反查路由）；
+5. 上一条之前**必须先提交 lib/ 构建产物**（市场 git 通道预检，不提交安装 400）；
+6. 挂 profile：`dsh plugin --profile <p> add <路径>`。
 
 ## 8. 踩坑大全（20 个真实插件攒的，按出现频率排序）
 
